@@ -2,7 +2,6 @@ package com.swarna.blinkroute.controller;
 
 import com.swarna.blinkroute.service.ShortCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +10,7 @@ public class UrlController {
     private final ShortCodeGenerator shortCodeGenerator;
 
     @Autowired
-    public UrlController(@Qualifier("randomShortCodeGenerator") ShortCodeGenerator shortCodeGenerator) {
+    public UrlController(ShortCodeGenerator shortCodeGenerator) {
         this.shortCodeGenerator = shortCodeGenerator;
     }
 
