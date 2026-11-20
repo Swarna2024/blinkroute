@@ -31,6 +31,19 @@ public class Url {
     @Column(name = "click_count", nullable = false)
     private Integer clickCount;
 
+    // Constructors
+    public Url() {
+    }
+
+    public Url(String originalUrl, String shortCode, LocalDateTime createdAt, LocalDateTime expiresAt,
+            Integer clickCount) {
+        this.originalUrl = originalUrl;
+        this.shortCode = shortCode;
+        this.createdAt = createdAt;
+        this.expiresAt = expiresAt;
+        this.clickCount = clickCount;
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -79,4 +92,13 @@ public class Url {
     public void setClickCount(Integer clickCount) {
         this.clickCount = clickCount;
     }
+
+    // toString method
+
+    @Override
+    public String toString() {
+        return "Url [id=" + id + ", originalUrl=" + originalUrl + ", shortCode=" + shortCode + ", createdAt="
+                + createdAt + ", expiresAt=" + expiresAt + ", clickCount=" + clickCount + "]";
+    }
+
 }
