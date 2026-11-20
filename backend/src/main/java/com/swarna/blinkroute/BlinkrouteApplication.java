@@ -10,4 +10,5 @@ public class BlinkrouteApplication {
 		SpringApplication.run(BlinkrouteApplication.class, args);
 	}
 
+	
 }
