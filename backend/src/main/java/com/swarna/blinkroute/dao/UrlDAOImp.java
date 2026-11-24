@@ -19,9 +19,15 @@ public class UrlDAOImp implements UrlDAO {
     }
 
     @Override
-    @Transactional 
+    @Transactional
     public void save(Url url) {
         entityManager.persist(url);
+    }
+
+    @Override
+    @Transactional
+    public Url findById(Long id) {
+        return entityManager.find(Url.class, id);
     }
 
 }

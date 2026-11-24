@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,10 +31,16 @@ public class UrlController {
     @GetMapping("/testing")
     public String createTestData() {
 
-        Url url1 = new Url("http://www.example.com", "abc123", LocalDateTime.now(), LocalDateTime.now(), 1);
+        Url url1 = new Url("http://www.google.com", "xyz123", LocalDateTime.now(), LocalDateTime.now(), 1);
         urlDAO.save(url1);
 
         return new String("Test data created successfully");
+    }
+
+    @GetMapping("/getUrl/{id}")
+    public String getUrl(@PathVariable Long id) {
+        Url url = urlDAO.findById(id);
+        return url.toString();
     }
 
 }
