@@ -39,4 +39,10 @@ public class UrlDAOImp implements UrlDAO {
         return query.getResultList();
     }
 
+    @Override
+    @Transactional
+    public void update(Url url) {
+        entityManager.merge(url);
+    }
+
 }

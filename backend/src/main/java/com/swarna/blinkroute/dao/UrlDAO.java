@@ -10,4 +10,6 @@ public interface UrlDAO {
     Url findById(Long id);
 
     List<Url> findAll();
+
+    void update(Url url);
 }

@@ -54,4 +54,13 @@ public class UrlController {
         return result.toString();
     }
 
+    @GetMapping("/updateExpiryDate")
+    public String updateExpiryDate() {
+
+        Url url = urlDAO.findById(1L);
+        url.setExpiresAt(LocalDateTime.now().plusDays(30));
+        urlDAO.update(url);
+        return new String("Expiry date updated successfully");
+    }
+
 }
