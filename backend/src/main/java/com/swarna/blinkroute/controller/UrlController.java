@@ -5,6 +5,7 @@ import com.swarna.blinkroute.entity.Url;
 import com.swarna.blinkroute.service.ShortCodeGenerator;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,16 @@ public class UrlController {
     public String getUrl(@PathVariable Long id) {
         Url url = urlDAO.findById(id);
         return url.toString();
+    }
+
+    @GetMapping("/getAllUrls")
+    public String getAllUrls() {
+        List<Url> urls = urlDAO.findAll();
+        StringBuilder result = new StringBuilder();
+        for (Url url : urls) {
+            result.append(url.toString()).append("\n");
+        }
+        return result.toString();
     }
 
 }
